@@ -1,49 +1,61 @@
 'use client'
 
-interface ButtonProps {
-  onClick?: () => void
+import React from 'react'
+
+type ButtonProps = {
+  variant?: 'frosted' | 'pop' | 'primary' | 'secondary' | 'success' | 'danger'
+  color?: 'blue' | 'red' | 'purple' | 'green'
   children: React.ReactNode
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'pop' | 'frosted'
-  color?: 'purple' | 'blue' | 'red' | 'green'
-  selected?: boolean
+  onClick?: () => void
   disabled?: boolean
   className?: string
+  selected?: boolean
 }
 
-export default function Button({ 
-  onClick, 
-  children, 
-  variant = 'primary',
+export default function Button({
+  variant = 'frosted',
   color = 'purple',
-  selected = false,
+  children,
+  onClick,
   disabled = false,
-  className = ''
+  className = '',
+  selected = false
 }: ButtonProps) {
-  const baseClasses = "font-bold text-white cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-  
-  const variantClasses = {
-    primary: "casino-control bg-gradient-to-b from-purple-500 to-purple-700 border-purple-400 hover:from-purple-600 hover:to-purple-800",
-    secondary: "casino-control bg-gradient-to-b from-gray-500 to-gray-700 border-gray-400 hover:from-gray-600 hover:to-gray-800",
-    success: "casino-control bg-gradient-to-b from-green-500 to-green-700 border-green-400 hover:from-green-600 hover:to-green-800",
-    danger: "casino-control bg-gradient-to-b from-red-500 to-red-700 border-red-400 hover:from-red-600 hover:to-red-800",
-    pop: `rounded-lg px-4 py-2 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 ${
-      color === 'blue' ? 'bg-gradient-to-br from-blue-600 to-blue-800' :
-      color === 'red' ? 'bg-gradient-to-br from-red-600 to-red-800' :
-      color === 'green' ? 'bg-gradient-to-br from-green-600 to-green-800' :
-      'bg-gradient-to-br from-purple-600 to-purple-800'
-    }`,
-    frosted: `rounded-lg px-4 py-2 backdrop-blur-md shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)] ${
-      selected 
-        ? 'bg-purple-600/90 border-2 border-purple-400' 
-        : 'bg-slate-800/70 border-2 border-slate-600 hover:bg-slate-700/70'
-    }`
+  const shadowClass =
+    variant === 'pop'
+      ? 'shadow-[0_6px_14px_rgba(0,0,0,0.55),inset_0_3px_8px_rgba(255,255,255,0.45)]'
+      : 'shadow-[0_4px_10px_rgba(0,0,0,0.45),inset_0_2px_6px_rgba(255,255,255,0.35)]'
+
+  const selectedGlow = selected
+    ? 'shadow-[0_0_14px_rgba(217,70,239,0.4)]'
+    : ''
+
+  const gradients: Record<string, string> = {
+    purple: selected
+      ? 'from-fuchsia-600 via-purple-700 to-indigo-800'
+      : 'from-purple-800 via-purple-900 to-indigo-950',
+    blue: 'from-blue-700 to-blue-900',
+    red: 'from-red-700 to-red-900',
+    green: 'from-green-700 to-green-900'
   }
+
+  // Check if className contains a custom gradient (bg-gradient-)
+  const hasCustomGradient = className.includes('bg-gradient-')
+  const backgroundClass = hasCustomGradient ? '' : `bg-gradient-to-br ${gradients[color]}`
 
   return (
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+      className={`
+        px-4 py-2 rounded-lg font-bold text-white
+        ${backgroundClass}
+        ${shadowClass}
+        ${selectedGlow}
+        transition-[box-shadow,filter]
+        disabled:opacity-50 disabled:cursor-not-allowed
+        ${className}
+      `}
     >
       {children}
     </button>
