@@ -110,7 +110,7 @@ export default function Home() {
               <div className="text-center">
                 <h2 className="text-lg sm:text-2xl font-bold mb-1 whitespace-nowrap" style={{fontVariant: 'small-caps'}}>
                   <span className="bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100 bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] uppercase">
-                    The Ultimate Championship Board
+                    The Championship Board
                   </span> 🏆
                 </h2>
                 <p className="text-slate-400 text-sm mb-3 italic">Where Champions Rise and Legends Fall</p>
