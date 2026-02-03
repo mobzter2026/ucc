@@ -62,7 +62,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-950 via-70% to-slate-950 text-white p-2 sm:p-4 font-mono overflow-x-hidden pb-24">
       <div className="max-w-7xl mx-auto mt-4 px-2">
-        {/* Title Section */}
+        {/* Title Section - Matching Points Royale styling */}
         <div className="text-center mb-8">
           <h1 className="w-full max-w-full text-center select-none text-[1.15rem] sm:text-[1.5rem] font-semibold tracking-[0.12em] sm:tracking-[0.16em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] mb-3 leading-tight">
             <span className="bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]">
@@ -86,7 +86,7 @@ export default function Home() {
               variant="frosted"
               color="purple"
               selected={activeTab === 'leaderboard'}
-              className="flex-1 min-w-[120px] px-2 py-1.5 text-xs sm:text-sm whitespace-nowrap text-white font-bold"
+              className="flex-1 min-w-[120px] px-3 py-2 text-xs sm:text-sm whitespace-nowrap text-white font-bold"
             >
               🏆 Leaderboard
             </Button>
@@ -96,7 +96,7 @@ export default function Home() {
               variant="frosted"
               color="purple"
               selected={activeTab === 'recent'}
-              className="flex-1 min-w-[130px] px-2 py-1.5 text-xs sm:text-sm whitespace-nowrap text-white font-bold"
+              className="flex-1 min-w-[130px] px-3 py-2 text-xs sm:text-sm whitespace-nowrap text-white font-bold"
             >
               📜 Recent Games
             </Button>
@@ -113,8 +113,8 @@ export default function Home() {
                     The Championship Board
                   </span> 🏆
                 </h2>
-                <p className="text-slate-400 text-sm mb-3 italic">Where Champions Rise and Legends Fall</p>
-                <p className="text-slate-400 text-xs mb-3">
+                <p className="text-slate-400 text-xs sm:text-sm mb-3 italic">Where Champions Rise and Legends Fall</p>
+                <p className="text-slate-400 text-[0.65rem] sm:text-xs mb-3">
                   🏆 Wins: 100%  ⬩  🏃 2nd: 40%  ⬩  🤟🏼 Survival: 10%
                 </p>
               </div>
@@ -124,14 +124,14 @@ export default function Home() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-slate-700 bg-gradient-to-b from-slate-800 to-slate-900 shadow-[0_4px_8px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.1)]">
-                    <th className="text-center p-4 w-20">Rank</th>
-                    <th className="text-left p-4">Player</th>
-                    <th className="text-center p-2 md:p-4 text-sm md:text-base">Games</th>
-                    <th className="text-center p-2 md:p-4 text-sm md:text-base">Wins</th>
-                    <th className="text-center p-2 md:p-4 text-sm md:text-base">2nd</th>
-                    <th className="text-center p-2 md:p-4 text-sm md:text-base">Survived</th>
-                    <th className="text-center p-2 md:p-4 text-sm md:text-base">Losses</th>
-                    <th className="text-center p-2 md:p-4 text-sm md:text-base">Win Rate</th>
+                    <th className="text-center p-2 sm:p-3 md:p-4 w-16 sm:w-20 text-xs sm:text-sm">Rank</th>
+                    <th className="text-left p-2 sm:p-3 md:p-4 text-xs sm:text-sm md:text-base">Player</th>
+                    <th className="text-center p-1 sm:p-2 md:p-4 text-[0.65rem] sm:text-xs md:text-sm">Games</th>
+                    <th className="text-center p-1 sm:p-2 md:p-4 text-[0.65rem] sm:text-xs md:text-sm">Wins</th>
+                    <th className="text-center p-1 sm:p-2 md:p-4 text-[0.65rem] sm:text-xs md:text-sm">2nd</th>
+                    <th className="text-center p-1 sm:p-2 md:p-4 text-[0.65rem] sm:text-xs md:text-sm">Survived</th>
+                    <th className="text-center p-1 sm:p-2 md:p-4 text-[0.65rem] sm:text-xs md:text-sm">Losses</th>
+                    <th className="text-center p-1 sm:p-2 md:p-4 text-[0.65rem] sm:text-xs md:text-sm">Win Rate</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -149,28 +149,28 @@ export default function Home() {
                           idx < 3 ? 'bg-yellow-900/10' : ''
                         } shadow-[inset_0_1px_2px_rgba(255,255,255,0.08)] hover:bg-purple-800/20 transition-all`}
                       >
-                        <td className="p-2 md:p-4 text-center text-xl md:text-2xl">
+                        <td className="p-2 sm:p-3 md:p-4 text-center text-lg sm:text-xl md:text-2xl">
                           {getMedal(idx)}
                         </td>
-                        <td className="p-2 md:p-4 font-bold text-lg md:text-xl">
+                        <td className="p-2 sm:p-3 md:p-4 font-bold text-sm sm:text-base md:text-lg lg:text-xl">
                           {player.player}
                         </td>
-                        <td className="text-center p-2 md:p-4 text-sm md:text-base">
+                        <td className="text-center p-1 sm:p-2 md:p-4 text-xs sm:text-sm md:text-base">
                           {player.gamesPlayed}
                         </td>
-                        <td className="text-center p-4 text-green-400 font-bold">
+                        <td className="text-center p-1 sm:p-2 md:p-4 text-green-400 font-bold text-xs sm:text-sm md:text-base">
                           {player.wins}
                         </td>
-                        <td className="text-center p-4 text-blue-400 font-bold">
+                        <td className="text-center p-1 sm:p-2 md:p-4 text-blue-400 font-bold text-xs sm:text-sm md:text-base">
                           {player.runnerUps}
                         </td>
-                        <td className="text-center p-4 text-slate-400 font-bold">
+                        <td className="text-center p-1 sm:p-2 md:p-4 text-slate-400 font-bold text-xs sm:text-sm md:text-base">
                           {player.survivals}
                         </td>
-                        <td className="text-center p-4 text-red-400 font-bold">
+                        <td className="text-center p-1 sm:p-2 md:p-4 text-red-400 font-bold text-xs sm:text-sm md:text-base">
                           {player.losses}
                         </td>
-                        <td className="text-center p-4 text-yellow-400 font-bold text-xl">
+                        <td className="text-center p-1 sm:p-2 md:p-4 text-yellow-400 font-bold text-sm sm:text-base md:text-lg lg:text-xl">
                           {player.winRate}%
                         </td>
                       </tr>
@@ -186,27 +186,27 @@ export default function Home() {
         {activeTab === 'recent' && (
           <div className="rounded-xl p-6 mb-8 bg-gradient-to-b from-purple-900/50 to-slate-900/60 shadow-[0_12px_25px_rgba(0,0,0,0.45),inset_0_2px_4px_rgba(255,255,255,0.08)]">
             <div className="flex flex-col items-center mb-4 gap-2">
-              <h2 className="text-xl font-bold mb-1 whitespace-nowrap">
+              <h2 className="text-lg sm:text-xl font-bold mb-1 whitespace-nowrap">
                 📜 <span className="bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100 bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">RECENT GAMES</span>
               </h2>
-              <div className="text-sm">
-                <span className="inline-block bg-green-600 text-white px-2 py-0.5 rounded mr-2 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">Winner</span>
-                <span className="inline-block bg-blue-600 text-white px-2 py-0.5 rounded mr-2 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">2nd</span>
-                <span className="inline-block bg-slate-600 text-white px-2 py-0.5 rounded mr-2 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">Survivors</span>
-                <span className="inline-block bg-red-600 text-white px-2 py-0.5 rounded shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">Loser</span>
+              <div className="text-[0.7rem] sm:text-xs md:text-sm flex-wrap justify-center flex">
+                <span className="inline-block bg-green-600 text-white px-2 py-0.5 rounded mr-2 mb-1 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">Winner</span>
+                <span className="inline-block bg-blue-600 text-white px-2 py-0.5 rounded mr-2 mb-1 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">2nd</span>
+                <span className="inline-block bg-slate-600 text-white px-2 py-0.5 rounded mr-2 mb-1 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">Survivors</span>
+                <span className="inline-block bg-red-600 text-white px-2 py-0.5 rounded mb-1 shadow-[0_4px_8px_rgba(0,0,0,0.35),inset_0_2px_6px_rgba(255,255,255,0.25)]">Loser</span>
               </div>
             </div>
-            <div className="text-center p-8 text-slate-400">
+            <div className="text-center p-8 text-slate-400 text-sm">
               No recent games to display.
             </div>
           </div>
         )}
 
         {/* Footer Links */}
-        <div className="text-center mt-8 space-x-4">
-          <a href="/admin/login" className="text-slate-400 hover:text-slate-200 text-sm">Admin Login</a>
+        <div className="text-center mt-8 space-x-4 text-xs sm:text-sm">
+          <a href="/admin/login" className="text-slate-400 hover:text-slate-200">Admin Login</a>
           <span className="text-slate-600">|</span>
-          <a href="/user/login" className="text-slate-400 hover:text-slate-200 text-sm">User Login</a>
+          <a href="/user/login" className="text-slate-400 hover:text-slate-200">User Login</a>
         </div>
       </div>
     </div>
